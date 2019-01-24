@@ -1,0 +1,74 @@
+.lesson{
+  width:100%;
+  padding-top:.4rem;
+  padding-bottom:.5rem;
+  &_list{
+    width:100%;
+  }
+  &_item:last-child{
+    margin-bottom:0rem;
+  }
+  &_item{
+    width:100%;
+    position: relative;
+    background: #ffffff;
+    border-radius: 8px;
+    margin-bottom:.25rem;
+    .lesson_cover{
+       width:34%;
+       max-height:3rem;
+       object-fit: cover;
+       border-radius: 8px;
+    }
+    .lesson_info{
+       width:65%;
+       height:100%;
+       box-sizing: border-box;
+       padding:.12rem .2rem;
+       font-size:.2rem;
+       position: absolute;
+       right:0px;
+       top:0px;
+       .lesson_title{
+         font-size:.36rem;
+         color:#000;
+         font-weight: bold;
+         padding:.09rem 0rem;
+       }
+       .lesson_word{
+         font-size:.26rem;
+         color:#666;
+         padding:.02rem 0rem .1rem 0rem;
+       }
+       .lesson_desc{
+         width:100%;
+         font-size:.23rem;
+         color:#707070;
+         padding:.02rem 0rem 0rem 0rem;
+       }
+       .lesson_tips{
+         font-size:.23rem;
+         padding:.08rem .18rem;
+         border-radius: 6px;
+         border:1px solid #ed152a;
+         color:#ed152a;
+         width:fit-content;
+         width:-webkit-fit-content;
+         width:-moz-fit-content;
+         margin-top:.2rem;
+       }
+       .lesson_btn{
+         width:1.2rem;
+         height:.5rem;
+         border-radius: 12px;
+         background: #7fddbe;
+         color:#fff;
+         text-align: center;
+         line-height: .5rem;
+         position: absolute;
+         bottom:.15rem;
+         right:.2rem;
+       }
+    }
+  }
+}

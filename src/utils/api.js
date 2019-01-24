@@ -10,8 +10,9 @@ const ApiClient = {
    /**
     * 请求接口
     */
-   async get(url,params){
-      let axiosReturn = await axios.get(url,{...params})
+   async get(url,paramsData){
+     console.log(paramsData)
+      let axiosReturn = await axios.get(url,{params:paramsData})
       return axiosReturn
    },
 

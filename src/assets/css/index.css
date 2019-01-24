@@ -10,7 +10,7 @@ body {
 
 body,html,#root{
   width:100%;
-  height:100%;
+  background: #f7f7f7;
 }
 
 code {
@@ -52,4 +52,26 @@ img{
   border-top: .021rem solid #333;
   border-right: .021rem solid #333;
   transform: rotate(45deg);
+}
+
+.textOneLineHide{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.textTwoLineHide{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.textThreeLineHide{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }

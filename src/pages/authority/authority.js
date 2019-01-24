@@ -8,7 +8,6 @@ class Authority extends React.Component {
   componentWillMount(){
     let search = this.props.location.search
     let code = ApiClient.reduceUrl(search)
-
     /**
      * 如果有code 请求并存储用户信息
      * 再跳转
