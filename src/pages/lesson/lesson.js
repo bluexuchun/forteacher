@@ -46,7 +46,13 @@ class Lesson extends React.Component{
 
   lessondetail(id){
     console.log(id)
-    this.props.history.push('/lessonDetail/'+id)
+    const { history } = this.props
+    history.push({
+      pathname:'/lessonDetail',
+      state:{
+        id:id
+      }
+    })
   }
   render(){
     return(

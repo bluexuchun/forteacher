@@ -4,16 +4,25 @@ import axios from 'axios'
 * http://teacher.centralsofts.cn/api.php?entry=app&c=wxapp&a=userinfo&do=display
 **/
 axios.defaults.baseURL = 'http://teacher.centralsofts.cn'
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 // 常用工具集合
 const ApiClient = {
    /**
-    * 请求接口
+    * 请求接口get
     */
    async get(url,paramsData){
      console.log(paramsData)
       let axiosReturn = await axios.get(url,{params:paramsData})
       return axiosReturn
+   },
+
+   /**
+    * 请求接口post
+    */
+   async post(url,paramsData){
+     let axiosReturn = await axios.post(url,paramsData)
+     return axiosReturn
    },
 
    /**

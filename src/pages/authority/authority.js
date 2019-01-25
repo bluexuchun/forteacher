@@ -6,8 +6,11 @@ class Authority extends React.Component {
     super(props)
   }
   componentWillMount(){
+    console.log(this.props)
     let search = this.props.location.search
+    console.log(search)
     let code = ApiClient.reduceUrl(search)
+    console.log(code)
     /**
      * 如果有code 请求并存储用户信息
      * 再跳转
@@ -19,7 +22,7 @@ class Authority extends React.Component {
           console.log(res);
         })
     }else{
-        this.props.history.push('/index')
+        this.props.history.push('/onceVip')
     }
   }
   render () {
