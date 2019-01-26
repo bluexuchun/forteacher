@@ -17,9 +17,146 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
   margin-top: .2rem;
 }
 .timeChoose{
 
+}
+.list_box{
+  width:100%;
+  padding-top:.2rem;
+  padding-bottom:.2rem;
+  .list_item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding:.3rem .3rem;
+    background: #fff;
+    border-radius: 8px;
+    border:1px solid #eaeaea;
+    color:#666;
+    position: relative;
+    .item_title{
+      font-size:.28rem;
+    }
+    .item_value{
+      font-size:.28rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .item_ava{
+      width:1rem;
+      height:1rem;
+      border-radius:50%;
+      margin-left:.2rem;
+    }
+    .icon_down{
+      width:.3rem;
+      transform: rotate(180deg);
+      position: absolute;
+      bottom:.1rem;
+      left:50%;
+      margin-left:-0.25rem;
+    }
+  }
+}
+.teacher_box{
+  width:100%;
+  background: #fff;
+  padding:0rem 0.26rem;
+  font-size:.2rem;
+  .teacher_tip{
+    width:100%;
+    padding:.3rem 0rem;
+    border-bottom:1px solid #eaeaea;
+    font-size:.34rem;
+    font-weight: bold;
+    color:#00bc7d;
+  }
+  .teacher_group{
+    width:100%;
+    .teacher_item{
+      width:100%;
+      align-items: center;
+      box-sizing: border-box;
+      padding:.4rem 0rem;
+      .teacher_ava{
+        width:1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        .img_ava{
+          width:1.2rem;
+          height:1.2rem;
+        }
+      }
+      .teacher_iteminfo:after{
+        content:'';
+        width:100%;
+        height:1px;
+        background: #eaeaea;
+        position: absolute;
+        bottom:-0.4rem;
+        right:0px;
+      }
+      .teacher_iteminfo{
+        flex:1;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        .teacher_info{
+          width:70%;
+          .info_title{
+            font-size:.34rem;
+            .title_name{
+              color:#000;
+            }
+            .title_rate{
+              color:#ed152a;
+              margin-left:.15rem;
+            }
+          }
+          .info_desc{
+            margin-top:.28rem;
+            font-size:.28rem;
+            color:#666;
+          }
+        }
+        .teacher_appoint{
+          padding:.15rem .35rem;
+          border:1px solid #00bc7d;
+          color:#00bc7d;
+          font-size:.28rem;
+          border-radius:15px;
+        }
+      }
+    }
+  }
+}
+.downAnimate{
+  animation: down 1s forwards
+}
+@keyframes down {
+  0%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+.upAnimate{
+  animation: up 1s forwards
+}
+@keyframes up {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(-180deg);
+  }
 }
