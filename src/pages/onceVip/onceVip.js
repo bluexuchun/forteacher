@@ -1,10 +1,10 @@
 import React from 'react'
 import ApiClient from '@/utils/api'
-import { Tabs,DatePicker } from 'antd-mobile'
 import './onceVip.less'
 import Avatar from '@/assets/images/lesson/avatar.png'
 import Avatar1 from '@/assets/images/lesson/avatar1.png'
 import Icondown from '@/assets/images/lesson/up.png'
+import { Tabs,DatePicker } from 'antd-mobile'
 
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
@@ -19,7 +19,6 @@ class OnceVip extends React.Component{
     super(props)
     this.state = {
         dateone: now,
-        timeone:now,
         isShowone:'init',
         teacher_listsone:[
           {
@@ -214,7 +213,7 @@ class OnceVip extends React.Component{
              <div className="list_box padleftright">
                <DatePicker
                  mode="time"
-                 value={this.state.timeone}
+                 minuteStep={30}
                  onChange={time => this.setState({ time })}>
                     <div className="list_item">
                       <div className="item_title">开课时间</div>

@@ -31,7 +31,7 @@ class CourseGroup extends React.Component{
           tabBarActiveTextColor="#00bc7d"
           tabBarInactiveTextColor="#666666"
         >
-          <div className="tabPane flex-column" style={{marginTop:'0rem',justifyContent:'flex-start',position:'relative',background:'#fff'}}>
+          <div className="tabPanebox flex-column" style={{marginTop:'0rem',justifyContent:'flex-start',position:'relative',background:'#fff'}}>
              <div className="allPrice padleftright flex-row">
                 总价：<span className="pricetext">7388</span><span className="priceword">RMB</span>
              </div>
@@ -48,7 +48,7 @@ class CourseGroup extends React.Component{
                 <div className="course_btn">购买套餐</div>
              </div>
           </div>
-          <div className="tabPane flex-column" style={{marginTop:'0rem',justifyContent:'flex-start',position:'relative',background:'#fff'}}>
+          <div className="tabPanebox flex-column" style={{marginTop:'0rem',justifyContent:'flex-start',position:'relative',background:'#fff'}}>
               <div className="allPrice padleftright flex-row">
                  总价：<span className="pricetext">7388</span><span className="priceword">RMB</span>
               </div>
