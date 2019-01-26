@@ -42,6 +42,14 @@ class Index extends React.Component{
 
   }
 
+  linkTo(url){
+    let newurl = '/' + url
+    console.log(newurl)
+    const { history } = this.props
+    history.push({
+      pathname:url,
+    })
+  }
 
   render(){
     return (
@@ -64,7 +72,7 @@ class Index extends React.Component{
 
 
           <div className="index_vip padleftright flex-row flex-spacebetween">
-              <div className="vip_once vip_box">
+              <div className="vip_once vip_box" onClick={() => this.linkTo('onceVip')}>
                   <img className="vip_bg" src={Img_oncebg} alt=""/>
                   <div className="vip_item flex-row">
                     <img className="once vip_icon" src={Img_once} alt=""/>
@@ -74,12 +82,12 @@ class Index extends React.Component{
                     </div>
                   </div>
               </div>
-              <div className="vip_month vip_box">
+              <div className="vip_month vip_box" onClick={() => this.linkTo('courseGroup')}>
                   <img className="vip_bg" src={Img_monthbg} alt=""/>
                   <div className="vip_item flex-row">
                     <img className="month vip_icon" src={Img_month} alt=""/>
                     <div className="vip_iteminfo flex-column">
-                      <div className="vip_nums flex-row"><span className="bigSize">200</span>次</div>
+                      <div className="vip_nums flex-row"><span className="bigSize">0</span>次</div>
                       <div className="vip_name">月卡预约</div>
                     </div>
                   </div>

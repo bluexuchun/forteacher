@@ -22,7 +22,7 @@ class Authority extends React.Component {
           console.log(res);
         })
     }else{
-        this.props.history.push('/onceVip')
+        this.props.history.push('/index')
     }
   }
   render () {
