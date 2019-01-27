@@ -1,6 +1,6 @@
 import React from 'react'
 import ApiClient from '@/utils/api'
-import { DatePicker } from 'antd-mobile'
+import { DatePicker,Toast } from 'antd-mobile'
 import './monthVip.less'
 import Avatar from '@/assets/images/lesson/avatar.png'
 import Avatar1 from '@/assets/images/lesson/avatar1.png'
@@ -8,6 +8,14 @@ import Icondown from '@/assets/images/lesson/up.png'
 
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
+
+function successToast(msg) {
+  Toast.success(msg, 2);
+}
+
+function failToast(msg) {
+  Toast.fail(msg, 2);
+}
 
 class MonthVip extends React.Component{
   constructor(props){
@@ -85,19 +93,18 @@ class MonthVip extends React.Component{
     }
   }
   componentWillMount() {
-    // ApiClient.post('http://www.eeo.cn/partner/api/course.api.php?action=getCourseClass',{
-    //   SID:'1261996',
-    //   safeKey:'5331d7a2b9ac4792bd277d727d6b8eaa',
-    //   timeStamp:'1548437162',
-    //   courseId:'6663929'
-    // })
-    // .then((res) => {
-    //   console.log(res);
-    // })
+    let hours = (this.state.time).getHours()
+    this.setState({
+      time:new Date(new Date(new Date().toLocaleDateString()).getTime() + hours * 60 *60 * 1000),
+    })
   }
   componentDidMount() {
 
   }
+
+  /**
+   * 打开关闭老师列表
+   */
   toggleTeacher(){
     let status = this.state.isShow
 
@@ -110,6 +117,10 @@ class MonthVip extends React.Component{
         isShow:status
       })
   }
+
+  /**
+   * 选择分类
+   */
   chooseCate(type,key){
     console.log(type)
     let catelists
@@ -136,22 +147,43 @@ class MonthVip extends React.Component{
         tag_lists:catelists
       })
     }
-
-
   }
+
+  /**
+   * 预约
+   */
+  actionAppointMonth(id){
+    let choseDate,choseTime
+    choseDate = this.state.dateVal
+    choseTime = this.state.timeVal
+    if(choseDate && choseDate != "" && choseTime && choseTime != ""){
+      let { history } = this.props
+      successToast('预约成功')
+      setTimeout(() => {
+        history.push({
+          pathname:'/index'
+        })
+      },2000)
+    }else{
+      failToast('请选择日期、时间')
+    }
+  }
+
+
+
   render(){
     return (
       <div>
         <div className="tabPane teacherChoose flex-column">
           <div className="list_box padleftright">
             <DatePicker
-              mode="date"
+              mode="day"
               value={this.state.date}
-              onChange={date => this.setState({ date })}>
+              onChange={date => this.setState({ dateVal:date })}>
                  <div className="list_item">
                    <div className="item_title">开课日期</div>
                    <div className="item_value">
-                     请选择日期
+                     {this.state.dateVal ? `${this.state.dateVal.getMonth()+1}月${this.state.dateVal.getDate()}日` : '请选择日期'}
                      <div className="arrow_right"></div>
                    </div>
                  </div>
@@ -161,11 +193,11 @@ class MonthVip extends React.Component{
             <DatePicker
               mode="time"
               value={this.state.time}
-              onChange={time => this.setState({ time })}>
+              onChange={time => this.setState({ timeVal:time })}>
                  <div className="list_item">
                    <div className="item_title">开课时间</div>
                    <div className="item_value">
-                     请选择时间
+                      {this.state.timeVal ? `${this.state.timeVal.getHours()}时${this.state.timeVal.getMinutes()}分` : '请选择时间'}
                      <div className="arrow_right"></div>
                    </div>
                  </div>
@@ -191,7 +223,7 @@ class MonthVip extends React.Component{
                         <div className="tags_item">国际老师</div>
                       </div>
                     </div>
-                    <div className="common_appoint">预约</div>
+                    <div className="common_appoint" onClick={() => this.actionAppointMonth('1')}>预约</div>
                 </div>
                 <div className="common_item flex-row">
                     <div className="common_ava">
@@ -206,11 +238,12 @@ class MonthVip extends React.Component{
                         <div className="tags_item">国际老师</div>
                       </div>
                     </div>
-                    <div className="common_appoint">预约</div>
+                    <div className="common_appoint" onClick={() => this.actionAppointMonth('1')}>预约</div>
                 </div>
             </div>
           </div>
           <div className="list_up">
+            <div className="moretxt">{this.state.isShow == 'init' ? '更多' : this.state.isShow ? '收起' : '更多'}</div>
             <img onClick={() => this.toggleTeacher()} className={`icon_down ${this.state.isShow == 'init' ? '' : this.state.isShow ? 'downAnimate' : 'upAnimate'}`} src={Icondown} alt=""/>
           </div>
           <div className="teacher_box padleftright" style={{display:this.state.isShow == 'init' ? 'none' : this.state.isShow ? 'block' : 'none'}}>
@@ -244,7 +277,7 @@ class MonthVip extends React.Component{
                          {v.desc}
                       </div>
                     </div>
-                    <div className="teacher_appoint">
+                    <div className="teacher_appoint" onClick={() => this.actionAppointMonth(v.id)}>
                       预约
                     </div>
                   </div>

@@ -38,13 +38,42 @@ const ApiClient = {
         return false
       }
    },
-
    /**
     * 根据路由修改title
     */
    setTitle(title){
      document.title = title
-   }
+   },
+
+   /**
+    * 选择月 日
+    */
+    setDay(month){
+      let daylists = []
+      if(month == '2'){
+        for (var i = 1; i <= 28; i++) {
+          daylists.push({
+            label:i + '日',
+            value:i
+          })
+        }
+      }else if(month == '4' || month == '6' || month == '9' || month == '11'){
+        for (var i = 1; i <= 30; i++) {
+          daylists.push({
+            label:i + '日',
+            value:i
+          })
+        }
+      }else{
+        for (var i = 1; i <= 31; i++) {
+          daylists.push({
+            label:i + '日',
+            value:i
+          })
+        }
+      }
+      return daylists
+    }
 }
 
 export default ApiClient

@@ -13,6 +13,12 @@ class LessonDetail extends React.Component{
   componentWillMount(){
       console.log(this.props)
   }
+  chooseClass(){
+    let { history } = this.props
+    history.push({
+      pathname:'/index'
+    })
+  }
   render(){
     return(
        <div className="lessond">
@@ -38,7 +44,7 @@ class LessonDetail extends React.Component{
               </div>
            </div>
            <div className="lessond_choose padleftright">
-              <div className="choose_btn">选择课程</div>
+              <div className="choose_btn" onClick={() => this.chooseClass()}>选择课程</div>
            </div>
        </div>
     )

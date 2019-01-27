@@ -85,3 +85,18 @@ img{
     padding: .1rem .2rem;
     height: .75rem;
 }
+.am-toast-notice-content .am-toast-text.am-toast-text-icon {
+    min-width: 2rem;
+    border-radius: 3px;
+    color: #fff;
+    background-color: rgba(58, 58, 58, 0.9);
+    line-height: 1.5;
+    padding: .24rem .23rem;
+}
+.am-icon-lg {
+    width: .8rem;
+    height: .8rem;
+}
+.am-toast{
+  font-size:.26rem;
+}
