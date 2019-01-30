@@ -303,36 +303,6 @@ class OnceVip extends React.Component{
              </div>
           </div>
           <div className="tabPane teacherChoose flex-column" style={{marginTop:'0rem'}}>
-            <div className="list_box padleftright">
-              <DatePicker
-                mode="day"
-                value={this.state.datetwo}
-                onChange={date => this.setState({ teacherDate:date })}
-                >
-                   <div className="list_item">
-                     <div className="item_title">开课日期</div>
-                     <div className="item_value">
-                       {this.state.teacherDate ? `${this.state.teacherDate.getMonth()+1}月${this.state.teacherDate.getDate()}日` : '请选择日期'}
-                       <div className="arrow_right"></div>
-                     </div>
-                   </div>
-              </DatePicker>
-            </div>
-            <div className="list_box padleftright">
-              <DatePicker
-                mode="time"
-                value={this.state.timetwo}
-                minuteStep={30}
-                onChange={time => this.setState({ teacherTime:time })}>
-                   <div className="list_item">
-                     <div className="item_title">开课时间</div>
-                     <div className="item_value">
-                       {this.state.teacherTime ? `${this.state.teacherTime.getHours()}时${this.state.teacherTime.getMinutes()}分` : '请选择时间'}
-                       <div className="arrow_right"></div>
-                     </div>
-                   </div>
-              </DatePicker>
-            </div>
             <div className="list_common">
               <div className="common_tips" style={{marginBottom:'.2rem',paddingLeft:'.26rem',paddingRight:'.26rem'}}>常用老师</div>
               <div className="teacher_common padleftright">
@@ -404,6 +374,36 @@ class OnceVip extends React.Component{
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="list_box padleftright">
+              <DatePicker
+                mode="day"
+                value={this.state.datetwo}
+                onChange={date => this.setState({ teacherDate:date })}
+                >
+                   <div className="list_item">
+                     <div className="item_title">开课日期</div>
+                     <div className="item_value">
+                       {this.state.teacherDate ? `${this.state.teacherDate.getMonth()+1}月${this.state.teacherDate.getDate()}日` : '请选择日期'}
+                       <div className="arrow_right"></div>
+                     </div>
+                   </div>
+              </DatePicker>
+            </div>
+            <div className="list_box padleftright">
+              <DatePicker
+                mode="time"
+                value={this.state.timetwo}
+                minuteStep={30}
+                onChange={time => this.setState({ teacherTime:time })}>
+                   <div className="list_item">
+                     <div className="item_title">开课时间</div>
+                     <div className="item_value">
+                       {this.state.teacherTime ? `${this.state.teacherTime.getHours()}时${this.state.teacherTime.getMinutes()}分` : '请选择时间'}
+                       <div className="arrow_right"></div>
+                     </div>
+                   </div>
+              </DatePicker>
             </div>
           </div>
         </Tabs>
